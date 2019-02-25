@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Practise-Lab';
+  
+  activeCondition = true
+  activefunc(){
+    console.log('Working');
+    this.activeCondition = !this.activeCondition
+  }
 }
