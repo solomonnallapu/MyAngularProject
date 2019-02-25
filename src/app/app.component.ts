@@ -8,9 +8,21 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Practise-Lab';
   
-  activeCondition = true
-  activefunc(){
-    console.log('Working');
-    this.activeCondition = !this.activeCondition
+  // activeCondition = true
+  // activefunc(){
+  //   console.log('Working');
+  //   this.activeCondition = !this.activeCondition
+  // }
+  activeVariable = true
+
+ constructor() { }
+
+  ngOnInit() {
+    this.clickFunc();
   }
+      clickFunc(){
+        console.log('Working');
+        this.activeVariable = !this.activeVariable;
+      }
+
 }

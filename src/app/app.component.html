@@ -1,11 +1,16 @@
 
-<button (click)='activefunc()'>Toggle</button>
+<app-header></app-header>
+<div class="container text-center">
+<!-- <button (click)='activefunc()'>Toggle</button>
 
 <div>
   <h1 [ngClass]="{class1:activeCondition,class2:!activeCondition}" >Hi I am active</h1>
-  <h2 class="text-center"> hi </h2>
-</div>
-<ul>
+ 
+</div> -->
 
-</ul>
+<button (click)='clickFunc()' class="btn btn-primary">Toggle</button>
+<div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
+ <p> Active text </p>
+</div>
+</div>
 <router-outlet></router-outlet>
