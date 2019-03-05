@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Practise-Lab';
+  selectedType : string;
   
   // activeCondition = true
   // activefunc(){
@@ -19,10 +20,15 @@ export class AppComponent {
 
   ngOnInit() {
     this.clickFunc();
+    this.selectedType = 'loyalty';
   }
       clickFunc(){
         console.log('Working');
         this.activeVariable = !this.activeVariable;
       }
-
+      navActive(type){
+        this.selectedType = type;
+        // console.log('Type', type);
+        // this.ActiveCondition = !this.ActiveCondition;
+      }
 }

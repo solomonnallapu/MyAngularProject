@@ -12,5 +12,33 @@
 <div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
  <p> Active text </p>
 </div>
+<div class="footer">
+    <ul class="nav bottom-nav">
+        <li class="nav-item" (click) = 'navActive("loyalty")'>
+          <div [ngClass]="{'navactiveclass': (selectedType === 'loyalty')}" >
+          <div class=""><i class="fa fa-handshake" aria-hidden="true"></i></div>
+          <a class="nav-link">Loyalty</a>
+        </div>
+        </li>
+        <li class="nav-item" (click) = 'navActive("loans")'>
+            <div [ngClass]="{'navactiveclass': (selectedType === 'loans' )}">
+            <div class="loans-tab"><i class="fa fa-university" aria-hidden="true"></i></div>
+          <a class="nav-link">Loans</a>
+          </div>
+        </li>
+        <li class="nav-item" (click) = 'navActive("marketing")'>
+            <div [ngClass]="{'navactiveclass': selectedType === 'marketing'}">
+            <div class="marketing-tab"><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
+          <a class="nav-link" >Marketing</a>
+          </div>
+        </li>
+        <li class="nav-item" (click) = 'navActive("payments")'>
+          <div [ngClass]="{'navactiveclass': selectedType === 'payments'}">
+            <div class="payments-tab"><i class="fa fa-credit-card" aria-hidden="true"></i></div>
+          <a class="nav-link">Payments</a>
+        </div>
+        </li>
+        </ul>
+</div>
 </div>
 <router-outlet></router-outlet>
