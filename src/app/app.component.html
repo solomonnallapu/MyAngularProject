@@ -13,10 +13,10 @@
  <p> Active text </p>
 </div>
 <div class="footer">
-    <ul class="nav bottom-nav">
+    <!-- <ul class="nav bottom-nav">
         <li class="nav-item" (click) = 'navActive("loyalty")'>
           <div [ngClass]="{'navactiveclass': (selectedType === 'loyalty')}" >
-          <div class=""><i class="fa fa-handshake" aria-hidden="true"></i></div>
+          <div class="loyalty-tab"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
           <a class="nav-link">Loyalty</a>
         </div>
         </li>
@@ -38,7 +38,33 @@
           <a class="nav-link">Payments</a>
         </div>
         </li>
-        </ul>
+        </ul> -->
+        <ul class="nav bottom-nav">
+          <li class="nav-item" (click) = 'clickFunc1("loyalty")' >
+            <div  [ngClass] = "{'navactiveclass' : selected === 'loyalty' }">
+            <div class="loyalty-tab"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
+            <a class="nav-link">Loyalty</a>
+          </div>
+          </li>
+          <li class="nav-item" (click) = 'clickFunc1("loans")' >
+              <div [ngClass] = "{'navactiveclass' :selected === 'loans'}">
+              <div  class="loans-tab"><i class="fa fa-university" aria-hidden="true"></i></div>
+            <a class="nav-link">Loans</a>
+            </div>
+          </li>
+          <li class="nav-item" (click) = 'clickFunc1("marketing")' >
+              <div [ngClass] = "{'navactiveclass' : selected === 'marketing'}">
+              <div class="marketing-tab"  ><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
+            <a class="nav-link" >Marketing</a>
+            </div>
+          </li>
+          <li class="nav-item" (click) = 'clickFunc1("payments")' >
+            <div [ngClass] = "{'navactiveclass' :selected === 'payments'}">
+              <div class="payments-tab"><i class="fa fa-credit-card" aria-hidden="true"></i></div>
+            <a class="nav-link">Payments</a>
+          </div>
+          </li>
+          </ul>
 </div>
 </div>
 <router-outlet></router-outlet>

@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Practise-Lab';
   selectedType : string;
+
+  selected : string;
   
   // activeCondition = true
   // activefunc(){
@@ -21,6 +23,7 @@ export class AppComponent {
   ngOnInit() {
     this.clickFunc();
     this.selectedType = 'loyalty';
+    this.selected = 'loyalty'
   }
       clickFunc(){
         console.log('Working');
@@ -30,5 +33,9 @@ export class AppComponent {
         this.selectedType = type;
         // console.log('Type', type);
         // this.ActiveCondition = !this.ActiveCondition;
+      }
+
+      clickFunc1(select){
+        this.selected = select;
       }
 }
