@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./component1.component.scss']
 })
 export class Component1Component implements OnInit {
-
+  age : any ;
   constructor() { }
 
   ngOnInit() {
+  }
+  onClickSubmit() {
+  
   }
 
 }

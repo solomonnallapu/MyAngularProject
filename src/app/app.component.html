@@ -1,6 +1,6 @@
 
 <app-header></app-header>
-<div class="container text-center">
+<div class="container text-center mt-3">
 <!-- <button (click)='activefunc()'>Toggle</button>
 
 <div>
@@ -10,7 +10,53 @@
 
 <button (click)='clickFunc()' class="btn btn-primary">Toggle</button>
 <div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
- <p> Active text </p>
+ <h1> Active text </h1>
+</div>
+
+<!-------------------------- Dynamic Data  ------------------------------------->
+<h3>Dynamic Data</h3>
+<p>Name : {{dNames}} </p>
+<p>Number : {{dNumbers}}</p>
+
+<h3>Dynamic Listing</h3>
+<div class="d-flex justify-content-around">
+<ul class="list-unstyled"  >
+  <li *ngFor= "let designer of Sol; let i = index">
+    <p [ngClass]="{blue : ((i%2) == 0) , green: ((i%2) != 0)}">
+     {{i+1}} : {{designer.name}}
+    </p>
+  </li>
+</ul>
+
+<ul class="list-unstyled"  >
+    <li *ngFor= "let designer of Sol; let i = index ">
+      <p [ngClass]="{blue : (i <= 3) , green: (i > 3)}">
+       {{i+1}} : {{designer.name}}
+      </p>
+    </li>
+  </ul>
+  <ul class="list-unstyled">
+      <li *ngFor = "let designer of Sol; let i = index">
+        <p [ngClass] = "{blue : ((i%2)==0) green: ()} ">
+         {{i+1}} : {{designer.name}}
+        </p>
+      </li>
+    </ul>
+</div>
+<!-------------------------- Dynamic Select Options  ------------------------------------->
+<div class="form-group">
+  <label for="sel1">Dynamic Select Options</label>
+  <select class="form-control" id="sel1">
+    <option *ngFor= "let job of prof">{{job}}</option>
+    
+  </select>
+</div>
+<div id="mySidenav" class="sidenav">
+  <a >&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
 </div>
 <div class="footer">
     <!-- <ul class="nav bottom-nav">
@@ -66,5 +112,6 @@
           </li>
           </ul>
 </div>
+
 </div>
 <router-outlet></router-outlet>
