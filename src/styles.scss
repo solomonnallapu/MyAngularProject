@@ -1,42 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(248, 252, 255);
-  text-align: center;
- }
- .navactiveclass{
-    a,i{
-        color: #243ABC !important;
-    }
-    }
-    .sidenav {
-        height: 100%; /* 100% Full-height */
-        width: 0; /* 0 width - change this with JavaScript */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
-        left: 0;
-        background-color: #111; /* Black*/
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 60px; /* Place content 60px from the top */
-        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-      }
-      .blue{
-          color: #243ABC;
-      }
-      .green {
-          color: red;
-      }
-      .li-color {
-        li:nth-child(odd){
-            color: #243ABC;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-        }
-        li:nth-child(even){
-            color: #3bb54c;
-
-        }
+.container-fluid{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+// .footer {
+//     position: fixed;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     background-color: rgb(248, 252, 255);
+//     text-align: center;
+//  }
+ 
+.blue{
+color: #243ABC;
+}
+.green {
+color: #3bb54c;
+}
+.li-color {
+    li:nth-child(odd){
+        color: #243ABC;
+        
     }
+    li:nth-child(even){
+        color: #3bb54c;
+        
+    }
+}
+// Sidebar
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+    background: #673ab7;
+    a{
+        color: #ffffff !important;
+    }
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
