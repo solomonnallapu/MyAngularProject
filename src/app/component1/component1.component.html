@@ -1,5 +1,26 @@
-<div class="container mt-2">
-    <input type = 'number' [(ngModel)]= 'age' (keyup)="onClickSubmit($event)"> Age: 
-    <button (click)= 'onClickSubmit()'>Submit</button>
-    <p *ngIf="age > 0"> You have selected Age is {{age}}</p>
+<div class="container m-l">
+
+    <div class="ng-Model mb-5">
+        <h3>ngModel</h3>
+            <input type = 'number' [(ngModel)]= 'age' > Age: 
+            <button (click)= 'onClickSubmit()'>Submit</button>
+            <p *ngIf="age > 0"> You have selected Age is {{age}}</p>
+    </div>
+    
+
+    <button (click)='clickFunc()' class="btn btn-primary">Toggle</button>
+    <div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
+     <h1> Active text </h1>
+    </div>
+    <ng-multiselect-dropdown
+    [placeholder]="'custom placeholder'"
+    [data]="dropdownList"
+    [(ngModel)]="selectedItems"
+    [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+  >
+  </ng-multiselect-dropdown>
+
+
 </div>

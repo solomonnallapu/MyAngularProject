@@ -8,13 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DynamicClassesComponent } from './dynamic-classes/dynamic-classes.component';
 import { DynamicListingComponent } from './dynamic-listing/dynamic-listing.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MatCheckboxModule} from '@angular/material';
-
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,27 +22,18 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     SidebarComponent,
     DynamicClassesComponent,
     DynamicListingComponent,
-    // BrowserAnimationsModule,
-    // NoopAnimationsModule,
-    SidenavComponent
-
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    BrowserAnimationsModule,
-      NoopAnimationsModule,
-    MatButtonModule, MatCheckboxModule
-  
-  ],
+    NgMultiSelectDropDownModule.forRoot(),
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+}

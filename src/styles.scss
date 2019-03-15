@@ -1,5 +1,5 @@
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 .container-fluid{
     padding-right: 0 !important;
@@ -31,25 +31,32 @@ color: #3bb54c;
     }
 }
 // Sidebar
-.sidenav-container {
-    height: 100%;
-}
-
-.sidenav {
-    width: 200px;
+.my-sidebar{
     background: #673ab7;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100vh;
+     overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
     a{
-        color: #ffffff !important;
+        color: #ffffff;
+        padding: 10px !important;
     }
 }
-
-.sidenav .mat-toolbar {
-    background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-    position: sticky;
+//navbar
+.navbar-dark{
+    background: #673ab7 !important;
+    z-index: 2;
+    position: fixed !important;
     top: 0;
-    z-index: 1;
+   width: 100%;
+}
+.m-l{
+    margin-left: 197px;
+    margin-top: 76px;
 }
 

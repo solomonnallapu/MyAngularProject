@@ -69,14 +69,11 @@ export class DynamicListingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clickFunc();
-    this.selectedType = 'loyalty';
-    this.selected = 'loyalty';
+    // this.clickFunc();
+    // this.selectedType = 'loyalty';
+    // this.selected = 'loyalty';
   }
-  clickFunc() {
-    console.log('Working');
-    this.activeVariable = !this.activeVariable;
-  }
+
   navActive(type) {
     this.selectedType = type;
     // console.log('Type', type);

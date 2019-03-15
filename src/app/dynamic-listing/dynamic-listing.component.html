@@ -1,5 +1,5 @@
 
-<div class="container mt-2">
+<div class="container m-l">
   <!-------------------------- Dynamic Data  ------------------------------------->
 <h3>Dynamic Data--</h3>
 <p>Name : {{dNames}} </p>
@@ -37,10 +37,7 @@
  
 </div> -->
 
-<button (click)='clickFunc()' class="btn btn-primary">Toggle</button>
-<div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
- <h1> Active text </h1>
-</div>
+
 
 
 <!-------------------------- Dynamic Select Options  ------------------------------------->
@@ -51,13 +48,7 @@
     
   </select>
 </div>
-<div id="mySidenav" class="sidenav">
-  <a >&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
+
 <div class="footer">
     <!-- <ul class="nav bottom-nav">
         <li class="nav-item" (click) = 'navActive("loyalty")'>
