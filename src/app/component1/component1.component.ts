@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./component1.component.scss']
 })
 export class Component1Component implements OnInit {
-  age : any ;
-  number : any ;
+  age: any;
+  number: any;
   activeVariable = true
   constructor() { }
 
@@ -43,10 +43,11 @@ export class Component1Component implements OnInit {
     console.log(items);
   }
   onClickSubmit() {
-  
+
   }
   clickFunc() {
     console.log('Working');
     this.activeVariable = !this.activeVariable;
   }
+  courses = [];
 }

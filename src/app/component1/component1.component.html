@@ -1,18 +1,18 @@
 <div class="container m-l">
 
-    <div class="ng-Model mb-5">
-        <h3>ngModel</h3>
-            <input type = 'number' [(ngModel)]= 'age' > Age: 
-            <button (click)= 'onClickSubmit()'>Submit</button>
-            <p *ngIf="age > 0"> You have selected Age is {{age}}</p>
-    </div>
-    
+  <div class="ng-Model mb-5">
+    <h3>ngModel</h3>
+    <input type='number' [(ngModel)]='age'> Age:
+    <button (click)='onClickSubmit()'>Submit</button>
+    <p *ngIf="age > 0"> You have selected Age is {{age}}</p>
+  </div>
 
-    <button (click)='clickFunc()' class="btn btn-primary">Toggle</button>
-    <div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
-     <h1> Active text </h1>
-    </div>
-    <ng-multiselect-dropdown
+
+  <button (click)='clickFunc()' class="btn btn-primary">Toggle</button>
+  <div [ngClass]="{class1:activeVariable, class2:!activeVariable}">
+    <h1> Active text </h1>
+  </div>
+  <!-- <ng-multiselect-dropdown
     [placeholder]="'custom placeholder'"
     [data]="dropdownList"
     [(ngModel)]="selectedItems"
@@ -20,7 +20,60 @@
     (onSelect)="onItemSelect($event)"
     (onSelectAll)="onSelectAll($event)"
   >
-  </ng-multiselect-dropdown>
+  </ng-multiselect-dropdown> -->
+
+  <h1>Forms</h1>
+  <form>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input required minlength="3" ngModel name="firstName" #firstName="ngModel" type="firstName" class="form-control"
+        id="email">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">First Name is required</div>
+        <div *ngIf="firstName.errors.minlength">Minlength should be {{firstName.errors.minlength.requiredLength}}
+          characters</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea ngModel name="comment" id="" cols="30" rows="10" for="comment" class="from-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <!------------------------------ NgIF ------------------------------->
+
+  <!-- method 1 -->
+  <div *ngIf="courses.length > 0 ; then CoursesList else noCourses"></div>
+  <ng-template #CoursesList>
+    List of Courses
+  </ng-template>
+  <ng-template #noCourses>
+    No courses
+  </ng-template>
+
+  <br>
+  <!-- method 2 -->
+  <div *ngIf="courses.length > 0 ; else noCourses">
+    List of Courses
+  </div>
+  <ng-template #noCourses>
+    No courses
+  </ng-template>
 
 
+  <!-- ngSwitchCase -->
+
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Map View</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">List View</a>
+    </li>
+
+  </ul>
+  <div>map View content</div>
+  <!-- <div>List View content</div> -->
 </div>

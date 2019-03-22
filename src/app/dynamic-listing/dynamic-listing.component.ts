@@ -45,6 +45,7 @@ const Designers = [
 export class DynamicListingComponent implements OnInit {
   selectedType: string;
   selected: string;
+  colorChangeCondition : string;
 
   // activeCondition = true
   // activefunc(){
@@ -82,6 +83,11 @@ export class DynamicListingComponent implements OnInit {
 
   clickFunc1(select) {
     this.selected = select;
+  }
+  onClickChangeColor(select){
+    this.colorChangeCondition = select;
+    console.log(select);
+
   }
 
 

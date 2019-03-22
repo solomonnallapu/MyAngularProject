@@ -102,6 +102,25 @@
           </div>
           </li>
           </ul> -->
+
+          <div>
+            <h4>Click COndition in look</h4>
+              <ul class="list-unstyled">
+                  <li *ngFor= "let designer of Sol, let i = index" (click)="onClickChangeColor('i')">
+                    <p [ngClass] = "{'green' : colorChangeCondition === 'i' }">
+                   {{i+1}} : {{designer.name}}
+                    </p>
+                  </li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li *ngFor= "let designer of Sol, let i = index" (click)="onClickChangeColor('i')">
+                      <p [ngClass] = "{'green' : colorChangeCondition === 'i' }">
+                     {{i+1}} : {{designer.name}}
+                      </p>
+                    </li>
+                  </ul>
+          </div>
 </div>
 
 </div>
