@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../../assets/json/data.json';
 import profession from '../../assets/json/profession.json';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
+import { CommentStmt } from '@angular/compiler';
+
 
 ////////////////////////////////////// Designers Array ////////////////////////////////////////
 const Designers = [
@@ -44,20 +45,7 @@ const Designers = [
 
 
 export class DynamicListingComponent implements OnInit {
-  selectedType: string;
-  selected: string;
-  colorChangeCondition : string;
-
-  // activeCondition = true
-  // activefunc(){
-  //   console.log('Working');
-  //   this.activeCondition = !this.activeCondition
-  // }
-
-  Sol = Designers;
-  prof: any;
-
-  activeVariable = true
+  
   // hNames: any;
   // hAge: any;
   // hLocations: any;
@@ -66,8 +54,24 @@ export class DynamicListingComponent implements OnInit {
   // hMarksTenth:any;
   // hMarksIntermediate:any;
   // hMarksBtech:any;
+  // activeCondition = true
+  // activefunc(){
+  //   console.log('Working');
+  //   this.activeCondition = !this.activeCondition
+  // }
+
+  Sol = Designers;
+  prof: any;
+  activeVariable = true
+  selectedType: string;
+  selected: string;
+  colorChangeCondition : string;
+
   liColor = true
   personDetails: any;
+a:any;
+b: number;
+
 
   constructor() {
 
@@ -88,6 +92,8 @@ export class DynamicListingComponent implements OnInit {
     // this.hMarksIntermediate = data.Marks.Intermediate;
     // this.hMarksBtech = data.Marks.Btech;
     // this.prof = profession.jobs;
+  let sum = this.add(1,2);
+  console.log('SUMMM', sum);
   }
 
   navActive(type) {
@@ -110,5 +116,7 @@ export class DynamicListingComponent implements OnInit {
     }
     doSomething()
   }
-
+add(a,b) {
+  return a + b;
+}
 }
