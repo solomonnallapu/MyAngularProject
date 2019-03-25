@@ -1,36 +1,35 @@
-
 <div class="container m-l">
   <!-------------------------- Dynamic Data  ------------------------------------->
-<h3>Dynamic Data--</h3>
-<p>Name : {{dNames}} </p>
-<p>Number : {{dNumbers}}</p>
+  <h3>Dynamic Data--</h3>
+  <p>Name : {{dNames}} </p>
+  <p>Number : {{dNumbers}}</p>
 
-<h3>Dynamic Listing</h3>
-<div class="d-flex justify-content-around">
-<ul class="list-unstyled"  >
-  <li *ngFor= "let designer of Sol, let i = index">
-    <p [ngClass] = "{blue: ((i%2) == 0) , green : ((i%2)!=0)}" >
-   {{i+1}} : {{designer.name}}
-    </p>
-  </li>
-</ul>
-
-<ul class="list-unstyled"  >
-    <li *ngFor= "let designer of Sol; let i = index ">
-      <p [ngClass]="{blue : (i+1) <= 3 , green : (i+1) > 3}">
-       {{i+1}} : {{designer.name}}
-      </p>
-    </li>
-  </ul>
-  <ul class="list-unstyled">
-      <li *ngFor = "let designer of Sol; let i = index">
-        <p [ngClass] = "{blue : ((i%2)==0) , green: ((i%2)!=0)} ">
-         {{i+1}} : {{designer.name}}
+  <h3>Dynamic Listing</h3>
+  <div class="d-flex justify-content-around">
+    <ul class="list-unstyled">
+      <li *ngFor="let designer of Sol, let i = index">
+        <p [ngClass]="{blue: ((i%2) == 0) , green : ((i%2)!=0)}">
+          {{i+1}} : {{designer.name}}
         </p>
       </li>
     </ul>
-</div>
-<!-- <button (click)='activefunc()'>Toggle</button>
+
+    <ul class="list-unstyled">
+      <li *ngFor="let designer of Sol; let i = index ">
+        <p [ngClass]="{blue : (i+1) <= 3 , green : (i+1) > 3}">
+          {{i+1}} : {{designer.name}}
+        </p>
+      </li>
+    </ul>
+    <ul class="list-unstyled">
+      <li *ngFor="let designer of Sol; let i = index">
+        <p [ngClass]="{blue : ((i%2)==0) , green: ((i%2)!=0)} ">
+          {{i+1}} : {{designer.name}}
+        </p>
+      </li>
+    </ul>
+  </div>
+  <!-- <button (click)='activefunc()'>Toggle</button>
 
 <div>
   <h1 [ngClass]="{class1:activeCondition,class2:!activeCondition}" >Hi I am active</h1>
@@ -40,16 +39,16 @@
 
 
 
-<!-------------------------- Dynamic Select Options  ------------------------------------->
-<div class="form-group">
-  <label for="sel1">Dynamic Select Options</label>
-  <select class="form-control" id="sel1">
-    <option *ngFor= "let job of prof">{{job}}</option>
-    
-  </select>
-</div>
+  <!-------------------------- Dynamic Select Options  ------------------------------------->
+  <div class="form-group">
+    <label for="sel1">Dynamic Select Options</label>
+    <select class="form-control" id="sel1">
+      <option *ngFor="let job of prof">{{job}}</option>
 
-<div class="footer">
+    </select>
+  </div>
+
+  <div class="footer">
     <!-- <ul class="nav bottom-nav">
         <li class="nav-item" (click) = 'navActive("loyalty")'>
           <div [ngClass]="{'navactiveclass': (selectedType === 'loyalty')}" >
@@ -76,7 +75,7 @@
         </div>
         </li>
         </ul> -->
-        <!-- <ul class="nav bottom-nav">
+    <!-- <ul class="nav bottom-nav">
           <li class="nav-item" (click) = 'clickFunc1("loyalty")' >
             <div  [ngClass] = "{'navactiveclass' : selected === 'loyalty' }">
             <div class="loyalty-tab"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
@@ -103,24 +102,73 @@
           </li>
           </ul> -->
 
-          <div>
-            <h4>Click COndition in look</h4>
-              <ul class="list-unstyled">
-                  <li *ngFor= "let designer of Sol, let i = index" (click)="onClickChangeColor('i')">
-                    <p [ngClass] = "{'green' : colorChangeCondition === 'i' }">
-                   {{i+1}} : {{designer.name}}
-                    </p>
-                  </li>
-                </ul>
+    <div>
+      <h4>Click Condition in look 21-03-2019</h4>
+      <ul class="list-unstyled">
+        <li *ngFor="let designer of Sol, let i = index" (click)="onClickChangeColor(i)">
+          <p [ngClass]="{'green' : colorChangeCondition === i }">
+            {{i+1}} : {{designer.name}}
+          </p>
+        </li>
+      </ul>
 
-                <ul class="list-unstyled">
-                    <li *ngFor= "let designer of Sol, let i = index" (click)="onClickChangeColor('i')">
-                      <p [ngClass] = "{'green' : colorChangeCondition === 'i' }">
+      <!-- <ul class="list-unstyled">
+                    <li *ngFor= "let #designer of Sol, let i = index" (click)="onClickChangeColor(designer)">
+                      <p [ngClass] = "{'green' : colorChangeCondition (designer) }">
                      {{i+1}} : {{designer.name}}
                       </p>
                     </li>
-                  </ul>
-          </div>
-</div>
+                  </ul> -->
+    </div>
+
+    <h3>Table Data Given by Somu 22-03-2019</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Locations</th>
+          <th>Qualification</th>
+          <th>Courses</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>{{personDetails.Name}}</td>
+          <td>{{personDetails.Age}}</td>
+          <td>
+            <ol>
+              <li *ngFor="let location of personDetails.Locations">
+                {{location}}
+              </li>
+            </ol>
+          </td>
+          <td>{{personDetails.Qualification}}</td>
+          <td>
+            <ol>
+              <li *ngFor="let courses of personDetails.Courses">
+                {{courses}}
+              </li>
+            </ol>
+          </td>
+
+          <td>Tenth: {{personDetails.Marks.Tenth}}
+            Inter :
+            <li *ngFor="let marks of personDetails.persons.Intermediate">
+              {{marks}}
+            </li>
+            Btech : {{personDetails.Marks.Btech}}
+
+          </td>
+
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
 
 </div>

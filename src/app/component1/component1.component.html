@@ -41,7 +41,15 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-
+<h3>NgModel</h3>
+        <form class="form-group">
+          <input type="text" ngModel name="myForm" #myForm="ngModel" class="from-control" required>
+          <div class="alert alert-danger" *ngIf="myForm.touched && !myForm.valid" >
+            <div *ngIf="myForm.errors.required">
+              First Name is required
+            </div>
+          </div>
+        </form>
   <!------------------------------ NgIF ------------------------------->
 
   <!-- method 1 -->

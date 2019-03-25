@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../../assets/json/data.json';
 import profession from '../../assets/json/profession.json';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 ////////////////////////////////////// Designers Array ////////////////////////////////////////
 const Designers = [
@@ -57,22 +58,36 @@ export class DynamicListingComponent implements OnInit {
   prof: any;
 
   activeVariable = true
-  dNames: any;
-  dNumbers: any;
+  // hNames: any;
+  // hAge: any;
+  // hLocations: any;
+  // hQualification:any;
+  // hCourses:any;
+  // hMarksTenth:any;
+  // hMarksIntermediate:any;
+  // hMarksBtech:any;
   liColor = true
+  personDetails: any;
 
   constructor() {
 
-    this.dNames = data.names;
-    this.dNumbers = data.numbers;
-
-    this.prof = profession.jobs;
+    
   }
 
   ngOnInit() {
+    this.personDetails =  data;
     // this.clickFunc();
     // this.selectedType = 'loyalty';
     // this.selected = 'loyalty';
+    // this.hNames = data.Name;
+    // this.hAge = data.Age;
+    // this.hLocations = data.Locations;
+    // this.hQualification = data.Qualification;
+    // this.hCourses = data.Courses;
+    // this.hMarksTenth = data.Marks.Tenth;
+    // this.hMarksIntermediate = data.Marks.Intermediate;
+    // this.hMarksBtech = data.Marks.Btech;
+    // this.prof = profession.jobs;
   }
 
   navActive(type) {
@@ -87,8 +102,13 @@ export class DynamicListingComponent implements OnInit {
   onClickChangeColor(select){
     this.colorChangeCondition = select;
     console.log(select);
-
+    function doSomething(){
+      for (var i = 0; i<5; i++){
+        console.log(i)
+      }
+      console.log('finally :' +i);
+    }
+    doSomething()
   }
-
 
 }

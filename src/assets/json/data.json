@@ -1,4 +1,21 @@
 {
-    "names" : "Solomon",
-    "numbers" :"25"
+    "Name" : "Solomon",
+    "Age" :"25",
+    "Locations": [
+        "Hyderabad", "Delhi","Goa","Kadapa","ECIL"
+    ],
+    "Qualification": "BTech",
+    "Courses": [
+        "Angular", "React", "Vue", "NodeJs", "Native Applications building"
+    ],
+    "Marks": {
+        "Tenth": 98,
+        "Intermediate": 80,
+        "Btech": 75 
+    },
+    "persons": {
+        "Tenth": 98,
+        "Intermediate": [80,90,40,30],
+        "Btech": 75 
+    }
 }
