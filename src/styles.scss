@@ -1,5 +1,34 @@
 html, body { height: 100%; }
+/*------------ Media Queries --------------*/
+@media (min-width: 576px) {
+	.container {
+		max-width: 540px
+	}
+}
 
+@media (min-width: 768px) {
+	.container {
+		max-width: 720px
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		max-width: 960px
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 800px
+	}
+}
+
+/*-------------- MOBILE VIEW -----------------*/
+@media (min-width: 320px) and (max-width: 425px) {
+}
 
 .container-fluid{
     padding-right: 0 !important;

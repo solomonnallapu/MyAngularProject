@@ -46,19 +46,7 @@ const Designers = [
 
 export class DynamicListingComponent implements OnInit {
   
-  // hNames: any;
-  // hAge: any;
-  // hLocations: any;
-  // hQualification:any;
-  // hCourses:any;
-  // hMarksTenth:any;
-  // hMarksIntermediate:any;
-  // hMarksBtech:any;
-  // activeCondition = true
-  // activefunc(){
-  //   console.log('Working');
-  //   this.activeCondition = !this.activeCondition
-  // }
+
 
   Sol = Designers;
   prof: any;
@@ -66,16 +54,14 @@ export class DynamicListingComponent implements OnInit {
   selectedType: string;
   selected: string;
   colorChangeCondition : string;
-
   liColor = true
   personDetails: any;
-a:any;
-b: number;
+  a:any;
+  b: number;
 
 
   constructor() {
 
-    
   }
 
   ngOnInit() {
@@ -83,23 +69,16 @@ b: number;
     // this.clickFunc();
     // this.selectedType = 'loyalty';
     // this.selected = 'loyalty';
-    // this.hNames = data.Name;
-    // this.hAge = data.Age;
-    // this.hLocations = data.Locations;
-    // this.hQualification = data.Qualification;
-    // this.hCourses = data.Courses;
-    // this.hMarksTenth = data.Marks.Tenth;
-    // this.hMarksIntermediate = data.Marks.Intermediate;
-    // this.hMarksBtech = data.Marks.Btech;
-    // this.prof = profession.jobs;
-  let sum = this.add(1,2);
+ 
+  let sum = this.add(2,2);
   console.log('SUMMM', sum);
+  this.disp_details(123,"John");
+  this.disp_details(111,"mary","mary@xyz.com");
   }
 
   navActive(type) {
     this.selectedType = type;
-    // console.log('Type', type);
-    // this.ActiveCondition = !this.ActiveCondition;
+  
   }
 
   clickFunc1(select) {
@@ -116,7 +95,15 @@ b: number;
     }
     doSomething()
   }
-add(a,b) {
-  return a + b;
-}
+  add(a,b) {
+    return a * b;
+  }
+   disp_details(id:number,name:string,mail_id?:string) { 
+    console.log("ID:", id); 
+    console.log("Name",name); 
+    
+    if(mail_id!=undefined)  
+    console.log("Email Id",mail_id); 
+ }
+
 }
