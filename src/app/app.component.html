@@ -1,10 +1,14 @@
 
-    <app-sidebar></app-sidebar>
+<app-sidebar></app-sidebar>
+<app-header></app-header>
 
-    <app-header></app-header>
-<p>----------------------HOME--------------------</p>
+<div class="container m-l">
+    <div class="text-center">
+        <a class="btn btn-primary" (click)="onClick()">Navigate To</a>
 
 
+    </div>
+    <router-outlet></router-outlet>
+</div>
 
 
-<router-outlet></router-outlet>

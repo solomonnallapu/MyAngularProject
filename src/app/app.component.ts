@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
 
   
 
@@ -12,13 +13,18 @@ export class AppComponent {
   title = 'Practise-Lab';
 
 
-  constructor() {
+  constructor(
+
+    private route : Router,
+  ) {
 
 
   }
 
   ngOnInit() {
-    
   }
+      onClick(){
+        this.route.navigate(['firms']);
+      }
 }
 

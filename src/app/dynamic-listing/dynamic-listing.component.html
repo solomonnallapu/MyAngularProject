@@ -3,7 +3,12 @@
   <h3>Dynamic Data--</h3>
   <!-- <p>Name : {{dNames}} </p>
   <p>Number : {{dNumbers}}</p> -->
+  <h5>NgModel</h5>
+  <div>
+    <label>Name :</label> <input type="text" (change)='checkNameAndAge()' [(ngModel)]="name">
+    <label>Age :</label><input type="number" (change)='checkNameAndAge()' [(ngModel)]="age">
 
+  </div>
   <h3>Dynamic Listing</h3>
   <div class="d-flex justify-content-around">
     <ul class="list-unstyled">
@@ -40,7 +45,7 @@
   <div class="form-group">
     <label for="sel1">Dynamic Select Options</label>
     <select class="form-control" id="sel1">
-      <option *ngFor="let job of prof">{{job}}</option>
+      <option *ngFor="let job of prof.jobs">{{job}}</option>
 
     </select>
   </div>
@@ -72,7 +77,7 @@
         </div>
         </li>
         </ul> -->
-    
+
     <div>
       <h4>Click Condition in look 21-03-2019</h4>
       <ul class="list-unstyled">
@@ -83,7 +88,7 @@
         </li>
       </ul>
     </div>
-<!-- -------------------------------- Table  -------------------------->
+    <!-- -------------------------------- Table  -------------------------->
     <h3>Table Data Given by Somu 22-03-2019</h3>
     <table class="table">
       <thead>
@@ -118,7 +123,8 @@
             </ol>
           </td>
 
-          <td>Tenth: {{personDetails.Marks.Tenth}}
+          <td>
+            Tenth: {{personDetails.Marks.Tenth}}
             Inter :
             <li *ngFor="let marks of personDetails.persons.Intermediate">
               {{marks}}
@@ -129,6 +135,84 @@
 
       </tbody>
     </table>
+
+    <h3>Complex jason data</h3>
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>PPU</th>
+          <th>Batters</th>
+          <th>Topping</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let details of complexData; let i = index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>{{details.id}} </td>
+          <td>{{details.name}}</td>
+          <td>
+            {{details.ppu}}
+          </td>
+          <td>
+            <ul class="list-unstyled">
+              <li *ngFor="let batterDetails of details.batters.batter">
+                ID:{{batterDetails.id}}
+
+                {{batterDetails.type}}
+              </li>
+            </ul>
+            {{details.batters.batter.id}}
+            {{details.batters.batter.type}}
+          </td>
+          <td>
+            <ul class="list-unstyled">
+              <li *ngFor="let top of details.topping">
+                ID:{{top.id}}
+                TYPE:{{top.type}}
+              </li>
+            </ul>
+
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <h3>Login Form</h3>
+    <form class="mb-5 form-group" #myForm="ngForm" (ngSubmit)='onSubmit(myForm)'>
+      <label for="firstName">Name</label>
+      <input type="text" class="form-control" minlength="4" required ngModel name="firstName" #firstName="ngModel"
+        (change)='nameFunc(firstName)'>
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">Name is required</div>
+        <div *ngIf="firstName.errors.minlength">Enter minimum 4 Characters</div>
+      </div>
+      <label for="password">Password</label>
+      <input type="password" ngModel name="password" #password="ngModel" required minlength="8" class="form-control"
+        (change)='passFunc(password)'>
+      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">Minimum length should be 8 Characters</div>
+      </div>
+
+      <label for="selectCity">Select city</label>
+      <select class="form-control" id="selectCity">
+        <option *ngFor="let list of myCities.city">{{list}}</option>
+      </select>
+      <label for="courses">Select Courses</label>
+      <select class="form-control" id="courses">
+        <option *ngFor="let course of myCourses.courses">{{course}}</option>
+      </select>
+      <div class="text-center">
+        <button class="btn btn-primary mt-3 ">Submit</button>
+      </div>
+
+    </form>
   </div>
+
 
 </div>
