@@ -183,7 +183,8 @@
       </tbody>
     </table>
     <h3>Login Form</h3>
-    <form class="mb-5 form-group" #myForm="ngForm" (ngSubmit)='onSubmit(myForm)'>
+    <!-- #myForm="ngForm" (ngSubmit)='onSubmit(myForm)' -->
+    <form class="mb-5 form-group" #myForm="ngForm">
       <label for="firstName">Name</label>
       <input type="text" class="form-control" minlength="4" required ngModel name="firstName" #firstName="ngModel"
         (change)='nameFunc(firstName)'>
@@ -191,13 +192,21 @@
         <div *ngIf="firstName.errors.required">Name is required</div>
         <div *ngIf="firstName.errors.minlength">Enter minimum 4 Characters</div>
       </div>
+      <!-- Password -->
       <label for="password">Password</label>
       <input type="password" ngModel name="password" #password="ngModel" required minlength="8" class="form-control"
-        (change)='passFunc(password)'>
+        (change)='passFunc(password)' >
       <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
         <div *ngIf="password.errors.required">Password is required</div>
         <div *ngIf="password.errors.minlength">Minimum length should be 8 Characters</div>
       </div>
+
+      <!-- Age -->
+       <label for="ages">Age</label>
+      <input type="number" ngModel name="age" #ages="ngModel"  class="form-control" placeholder="Enter your age"
+        (change)='ageFunc(ages)' required>
+         <!-- <div class="alert alert-danger" *ngIf="age.valid">
+        <div>Too young to Login</div></div> -->
 
       <label for="selectCity">Select city</label>
       <select class="form-control" id="selectCity">

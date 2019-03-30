@@ -90,6 +90,12 @@ export class DynamicListingComponent implements OnInit {
     console.log("Name ::", this.name, "Age:", this.age);
   }
   nameFunc(x) {
-    console.log(x);
+    console.log(x,'Name is working');
+  }
+  passFunc(y){
+      console.log(y, 'Password is working');
+  }
+  ageFunc(ag){
+      console.log(ag, 'Age is working');
   }
 }
