@@ -61,6 +61,9 @@ export class DynamicListingComponent implements OnInit {
   myCities: any;
   myCourses: any;
   firstName: any;
+  taskList: string;
+
+  data = {};
 
   constructor() {}
 
@@ -73,6 +76,7 @@ export class DynamicListingComponent implements OnInit {
     // this.clickFunc();
     // this.selectedType = 'loyalty';
     // this.selected = 'loyalty';
+    console.log(this.data);
   }
 
   navActive(type) {
@@ -89,13 +93,11 @@ export class DynamicListingComponent implements OnInit {
   checkNameAndAge() {
     console.log("Name ::", this.name, "Age:", this.age);
   }
-  nameFunc(x) {
-    console.log(x,'Name is working');
+  onSubmit() {
+    alert(JSON.stringify(this.data));
   }
-  passFunc(y){
-      console.log(y, 'Password is working');
-  }
-  ageFunc(ag){
-      console.log(ag, 'Age is working');
+  taskClicked(taskName) {
+    console.log("Value received", taskName);
+    this.taskList = taskName;
   }
 }

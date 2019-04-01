@@ -1,16 +1,34 @@
 <div class="container m-l">
   <!-------------------------- Dynamic Data  ------------------------------------->
-  <h3>Dynamic Data--</h3>
-  <!-- <p>Name : {{dNames}} </p>
-  <p>Number : {{dNumbers}}</p> -->
-  <h5>NgModel</h5>
-  <div>
+  <h3>Dynamic Data</h3>
+
+  <ul>
+    <li (click)='taskClicked("inputTest")'>
+NgModel
+    </li>
+    <li (click)='taskClicked("dynamicNames")'>
+        Dynamic Listing
+      </li>
+      <li (click)='taskClicked("dynamicSelect")'>
+      Dynamic Select Option
+        </li>
+        <li (click)='taskClicked("onColorChange")'>
+      On click change
+          </li>
+        <li (click) = 'taskClicked("tableData")'>
+          Table Data
+        </li>
+        <li (click) = 'taskClicked("loginForm")'>
+          Login Form
+        </li>
+  </ul>
+  <!-- <h5 >NgModel</h5> -->
+  <div *ngIf="taskList ==='inputTest'">
     <label>Name :</label> <input type="text" (change)='checkNameAndAge()' [(ngModel)]="name">
     <label>Age :</label><input type="number" (change)='checkNameAndAge()' [(ngModel)]="age">
-
   </div>
-  <h3>Dynamic Listing</h3>
-  <div class="d-flex justify-content-around">
+  <!-- <h3>Dynamic Listing</h3> -->
+  <div *ngIf="taskList === 'dynamicNames'" class="d-flex justify-content-around">
     <ul class="list-unstyled">
       <li *ngFor="let designer of Sol, let i = index">
         <p [ngClass]="{blue: ((i%2) == 0) , green : ((i%2)!=0)}">
@@ -42,8 +60,7 @@
 </div> -->
 
   <!-------------------------- Dynamic Select Options  ------------------------------------->
-  <div class="form-group">
-    <label for="sel1">Dynamic Select Options</label>
+  <div class="form-group" *ngIf="taskList === 'dynamicSelect'">
     <select class="form-control" id="sel1">
       <option *ngFor="let job of prof.jobs">{{job}}</option>
 
@@ -78,8 +95,7 @@
         </li>
         </ul> -->
 
-    <div>
-      <h4>Click Condition in look 21-03-2019</h4>
+    <div *ngIf="taskList === 'onColorChange'">
       <ul class="list-unstyled">
         <li *ngFor="let designer of Sol, let i = index" (click)="onClickChangeColor(i)">
           <p [ngClass]="{'green' : colorChangeCondition === i }">
@@ -89,6 +105,9 @@
       </ul>
     </div>
     <!-- -------------------------------- Table  -------------------------->
+    <div class="dTable" *ngIf="taskList === 'tableData'">
+
+   
     <h3>Table Data Given by Somu 22-03-2019</h3>
     <table class="table">
       <thead>
@@ -182,46 +201,73 @@
 
       </tbody>
     </table>
-    <h3>Login Form</h3>
-    <!-- #myForm="ngForm" (ngSubmit)='onSubmit(myForm)' -->
-    <form class="mb-5 form-group" #myForm="ngForm">
-      <label for="firstName">Name</label>
-      <input type="text" class="form-control" minlength="4" required ngModel name="firstName" #firstName="ngModel"
-        (change)='nameFunc(firstName)'>
-      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
-        <div *ngIf="firstName.errors.required">Name is required</div>
-        <div *ngIf="firstName.errors.minlength">Enter minimum 4 Characters</div>
-      </div>
-      <!-- Password -->
-      <label for="password">Password</label>
-      <input type="password" ngModel name="password" #password="ngModel" required minlength="8" class="form-control"
-        (change)='passFunc(password)' >
-      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
-        <div *ngIf="password.errors.required">Password is required</div>
-        <div *ngIf="password.errors.minlength">Minimum length should be 8 Characters</div>
-      </div>
-
-      <!-- Age -->
-       <label for="ages">Age</label>
-      <input type="number" ngModel name="age" #ages="ngModel"  class="form-control" placeholder="Enter your age"
-        (change)='ageFunc(ages)' required>
-         <!-- <div class="alert alert-danger" *ngIf="age.valid">
-        <div>Too young to Login</div></div> -->
-
-      <label for="selectCity">Select city</label>
-      <select class="form-control" id="selectCity">
-        <option *ngFor="let list of myCities.city">{{list}}</option>
-      </select>
-      <label for="courses">Select Courses</label>
-      <select class="form-control" id="courses">
-        <option *ngFor="let course of myCourses.courses">{{course}}</option>
-      </select>
-      <div class="text-center">
-        <button class="btn btn-primary mt-3 ">Submit</button>
-      </div>
-
-    </form>
   </div>
 
+  <div class="lForm" *ngIf="taskList === 'loginForm'">
+    <h3>Login Form</h3>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+
+        <!-- Username -->
+        <label for="firstName">Username</label>
+        <input type="text" name="firstName" class="form-control" minlength="4" [(ngModel)]="data.name" #Name="ngModel"
+          required placeholder="Enter your name">
+        <div class="form-group mt-2">
+          <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="alert alert-danger">
+            <div *ngIf="Name.errors.required">
+              Name is required.
+            </div>
+            <div *ngIf="Name.errors.minlength">
+              Name must be at least 4 characters long.
+            </div>
+          </div>
+        </div>
+        <!-- password -->
+        <label for="password">Password</label>
+        <input name="password" class="form-control" type="password" minlength="8" [(ngModel)]="data.password"
+          #passWord="ngModel" required placeholder="Password">
+
+        <div class="form-group  mt-2">
+          <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)" class="alert alert-danger">
+            <div *ngIf="passWord.errors.required">
+              Password is required.
+            </div>
+            <div *ngIf="passWord.errors.minlength">
+              Password must be at least 8 characters long.
+            </div>
+          </div>
+        </div>
+        <!-- Age -->
+        <label for="Age">Age</label>
+        <input name="Age" class="form-control" type="number" [(ngModel)]="data.age" #mAge="ngModel" required
+          placeholder="Age">
+        <div class="form-group  mt-2">
+          <div *ngIf="mAge.invalid && (mAge.dirty || mAge.touched)" class="alert alert-danger">
+            <!-- This is empty condition -->
+            <div *ngIf="mAge.errors.required">
+              age is required.
+            </div>
+          </div>
+          <div *ngIf="data.age < 18" class="alert alert-danger">
+            Age must be greater than 18
+          </div>
+        </div>
+        <!-- Cities -->
+        <label for="selCity">Select City</label>
+        <select name="selCity" class="form-control">
+          <option *ngFor="let mcity of myCities.city">{{mcity}}</option>
+        </select>
+
+        <!-- Courses -->
+        <label for="selCity">Select Courses</label>
+        <select name="selCity" class="form-control">
+          <option *ngFor="let mCourse of myCourses.courses">{{mCourse}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" [disabled]="f.form.pristine || f.form.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
 
 </div>
