@@ -205,7 +205,7 @@ NgModel
 
   <div class="lForm" *ngIf="taskList === 'loginForm'">
     <h3>Login Form</h3>
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" >
       <div class="form-group">
 
         <!-- Username -->
@@ -239,7 +239,7 @@ NgModel
         </div>
         <!-- Age -->
         <label for="Age">Age</label>
-        <input name="Age" class="form-control" type="number" [(ngModel)]="data.age" #mAge="ngModel" required
+        <input name="Age" class="form-control" type="number" [(ngModel)]="data.age" #mAge="ngModel" required 
           placeholder="Age">
         <div class="form-group  mt-2">
           <div *ngIf="mAge.invalid && (mAge.dirty || mAge.touched)" class="alert alert-danger">
@@ -248,19 +248,21 @@ NgModel
               age is required.
             </div>
           </div>
-          <div *ngIf="data.age < 18" class="alert alert-danger">
+          <div *ngIf="data.age < 18 && mAge.valid" class="alert alert-danger">
             Age must be greater than 18
           </div>
         </div>
         <!-- Cities -->
         <label for="selCity">Select City</label>
-        <select name="selCity" class="form-control">
-          <option *ngFor="let mcity of myCities.city">{{mcity}}</option>
+        <select  class="form-control"  name="city" [(ngModel)]="data.city" #mCity="ngModel">
+          <option value="loop"  *ngFor="let mcity of myCities.city">{{mcity}}</option>
         </select>
+       
 
         <!-- Courses -->
         <label for="selCity">Select Courses</label>
-        <select name="selCity" class="form-control">
+        <select  class="form-control" [(ngModel)]="selectTag" name="course" #Course="ngModel">
+          <option value="selectCourse">Select Course</option>
           <option *ngFor="let mCourse of myCourses.courses">{{mCourse}}</option>
         </select>
       </div>
@@ -268,6 +270,24 @@ NgModel
         <button class="btn btn-primary" [disabled]="f.form.pristine || f.form.invalid">Submit</button>
       </div>
     </form>
+    <div>
+      <label for="male">
+      <input type="radio" id="male" name="gender" (click)="openDiv('male')">male</label>
+      <label for="Female">
+      <input type="radio" id="Female" name="gender" (click)="openDiv('female')">Female</label>
+      <label for="trans">
+      <input type="radio" id="trans" name="gender" (click)="openDiv('trans')">trans</label>
+    </div>
+    <div>
+      <h1 *ngIf="genderType === 'male'" >male txt</h1>
+      <h1 *ngIf="genderType === 'female'">Female txt</h1>
+      <h1 *ngIf="genderType === 'trans'">transc txt</h1>
+
+    </div>
+
+    <!-- <form #f="ngForm" name="form" (ngSubmit)= "f.form.valid && onSubmit()">
+
+    </form> -->
   </div>
 
 </div>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Component1Component implements OnInit {
   age: any;
   number: any;
-  activeVariable = true
+  activeVariable = true;
   constructor() { }
 
   dropdownList = [];

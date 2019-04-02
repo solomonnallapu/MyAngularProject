@@ -62,22 +62,28 @@ export class DynamicListingComponent implements OnInit {
   myCourses: any;
   firstName: any;
   taskList: string;
-
+ genderType : any;
+ selectTag : any;
+deselectTask = false;
   data = {};
 
   constructor() {}
-
   ngOnInit() {
     this.personDetails = data;
     this.complexData = complex;
     this.prof = profession;
     this.myCities = cities;
     this.myCourses = courses;
+    this.selectTag='selectCourse'
     // this.clickFunc();
     // this.selectedType = 'loyalty';
     // this.selected = 'loyalty';
     console.log(this.data);
   }
+  openDiv(gtype){
+this.genderType= gtype;
+
+}
 
   navActive(type) {
     this.selectedType = type;
@@ -95,9 +101,22 @@ export class DynamicListingComponent implements OnInit {
   }
   onSubmit() {
     alert(JSON.stringify(this.data));
+    if (this.selectTag == "selectCourse"){
+      alert(JSON.stringify('Please select any Course'));
+      console.log('slect option');
+    }
   }
   taskClicked(taskName) {
     console.log("Value received", taskName);
-    this.taskList = taskName;
+    this.deselectTask = !this.deselectTask
+    if (this.deselectTask) {
+      this.taskList = taskName;
+    }else {
+      this.taskList = 'deselected';
+    }
+    
   }
+  // doSomething(x){
+  //   console.log(x);
+  // }
 }
