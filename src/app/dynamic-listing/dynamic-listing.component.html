@@ -21,7 +21,9 @@ NgModel
         <li (click) = 'taskClicked("loginForm")'>
           Login Form
         </li>
+        <li (click)= 'taskClicked("sample")'>Test</li>
   </ul>
+  <div *ngIf="taskList === 'sample'">Sample</div>
   <!-- <h5 >NgModel</h5> -->
   <div *ngIf="taskList ==='inputTest'">
     <label>Name :</label> <input type="text" (change)='checkNameAndAge()' [(ngModel)]="name">
@@ -279,7 +281,7 @@ NgModel
       <input type="radio" id="trans" name="gender" (click)="openDiv('trans')">trans</label>
     </div>
     <div>
-      <h1 *ngIf="genderType === 'male'" >male txt</h1>
+      <h1 *ngIf="genderType === 'male'" >Male txt</h1>
       <h1 *ngIf="genderType === 'female'">Female txt</h1>
       <h1 *ngIf="genderType === 'trans'">transc txt</h1>
 
