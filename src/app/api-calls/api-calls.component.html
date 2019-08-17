@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>API Calls</h2>
+  <p>This data is from jsonplaceholder.typicode.com</p>            
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Post ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let com of lstcomments">
+        <td>{{com.id}}</td>
+        <td>{{com.postId}}</td>
+        <td>{{com.name}}</td>
+        <td>{{com.email}}</td>
+        <td>{{com.body }} 
+          <a href="">View more</a>
+        </td>
+       </tr>
+     </tbody>
+  </table>
+</div>

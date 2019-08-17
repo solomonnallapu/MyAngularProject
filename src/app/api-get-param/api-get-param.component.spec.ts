@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicClassesComponent } from './dynamic-classes.component';
+import { ApiGetParamComponent } from './api-get-param.component';
 
-describe('DynamicClassesComponent', () => {
-  let component: DynamicClassesComponent;
-  let fixture: ComponentFixture<DynamicClassesComponent>;
+describe('ApiGetParamComponent', () => {
+  let component: ApiGetParamComponent;
+  let fixture: ComponentFixture<ApiGetParamComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicClassesComponent ]
+      declarations: [ ApiGetParamComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DynamicClassesComponent);
+    fixture = TestBed.createComponent(ApiGetParamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
