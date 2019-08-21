@@ -20,6 +20,8 @@ import { FreeApiService } from './services/free-api.service';
 import { ApiGetParamComponent } from './api-get-param/api-get-param.component';
 import { EventPracticeComponent } from './event-practice/event-practice.component';
 import { ChildComponent } from './event-practice/child/child.component';
+import { EmployeeComponent } from './employee/employee.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ChildComponent } from './event-practice/child/child.component';
     ApiCallsComponent,
     ApiGetParamComponent,
     EventPracticeComponent,
-    ChildComponent
+    ChildComponent,
+    EmployeeComponent
     // BusinessComponent,
   ],
   imports: [

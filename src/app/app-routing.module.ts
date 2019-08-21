@@ -7,6 +7,7 @@ import { ToDoComponent } from './to-do/to-do.component';
 import { ApiCallsComponent } from './api-calls/api-calls.component';
 import { ApiGetParamComponent } from './api-get-param/api-get-param.component';
 import { EventPracticeComponent } from './event-practice/event-practice.component';
+import { EmployeeComponent } from './employee/employee.component';
 const routes: Routes = [
   { path: "", redirectTo: "dynamic-listing", pathMatch: "full" },
   { path: "dynamic-listing", component: DynamicListingComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: "to-do", component: ToDoComponent },
   { path: "api", component: ApiCallsComponent },
   { path: "api-gp", component: ApiGetParamComponent },
-  { path: "event", component: EventPracticeComponent }
+  { path: "event", component: EventPracticeComponent },
+  { path: "employee", component: EmployeeComponent }
 
 ];
 
